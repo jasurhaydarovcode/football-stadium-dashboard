@@ -4,13 +4,10 @@
 
 </div>
 
-This project is a **Football Stadium Dashboard** designed to manage and display various information about football stadiums, including seating arrangements, ticket sales, event schedules, and more. The dashboard offers an interactive interface for users to easily navigate and get the data they need.
+This project is a **Football Stadium Dashboard** designed to manage and display various information about football stadiums, including event schedules and more. The dashboard offers an interactive interface for users to navigate easily and get the information they need.
 
 ## Features
 
-- **Seating Management**: Displays available seats and manages bookings.
-- **Ticket Sales**: View and track ticket sales data, including revenue.
-- **Statistics Overview**: Provides a statistical summary of previous matches, goals, and other relevant metrics.
 - **Responsive Design**: Fully responsive for use on both desktop and mobile devices.
 
 ## Technologies Used
@@ -22,7 +19,7 @@ This project is a **Football Stadium Dashboard** designed to manage and display 
 ## Developers
 
 |  №  |      Name     |     Component     |
-|-----|:-------------:|-------------------|
+|-----|---------------|-------------------|
 |  1  |   Jasur       ||
 |  2  |   Javlon      ||
 |  3  |   Shohjahon   ||
