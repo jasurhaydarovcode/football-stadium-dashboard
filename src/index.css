@@ -4,6 +4,11 @@
 
 body {
     font-family: Lato, sans-serif;
+    user-select: none;
+}
+
+.container {
+    margin: 0 auto;
 }
 
 @font-face {

@@ -2,15 +2,22 @@ import { useState } from "react";
 import { FaUserCircle, FaUsers, FaUserTag } from "react-icons/fa";
 import { HiMenuAlt2 } from "react-icons/hi";
 import { IoIosArrowDown } from "react-icons/io";
-import { IoTerminalOutline } from "react-icons/io5";
+import { IoLogOutOutline, IoTerminalOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import DiogramCharts from "../../components/DiogramCharts";
+import { MdAccountCircle } from "react-icons/md";
 
-const Dashboard = () => {
-    const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
-    const [showOptions, setShowOptions] = useState(false); // Logout uchun holat
+interface MenuItem {
+    name: string;
+    icon: JSX.Element;
+    link: string;
+}
 
-    const menuItems = [
+const Dashboard: React.FC = () => {
+    const [isSidebarCollapsed, setIsSidebarCollapsed] = useState<boolean>(false);
+    const [showOptions, setShowOptions] = useState<boolean>(false);
+
+    const menuItems: MenuItem[] = [
         { name: "Dashboard", icon: <IoTerminalOutline />, link: "/dashboard" },
         { name: "Masters", icon: <FaUserTag />, link: "/masters" },
         { name: "Clients", icon: <FaUsers />, link: "/clients" },
@@ -58,8 +65,15 @@ const Dashboard = () => {
 
                         {/* Logout Option */}
                         {showOptions && (
-                            <div className="absolute top-12 right-0 bg-white shadow-md rounded-lg py-2 w-40 z-10">
-                                <button className="w-full text-left p-2 hover:bg-gray-100">Logout</button>
+                            <div className="absolute top-10 right-0 bg-white  shadow-md rounded-lg py-2 w-40 z-10">
+                                <div className="flex items-center pl-3 hover:bg-gray-100">
+                                    <span className="text-2xl"><MdAccountCircle /></span>
+                                    <button className="w-full text-left p-2 font-bold text-lg">Account</button>
+                                </div>
+                                <div className="flex items-center pl-3 hover:bg-gray-100">
+                                    <span className="text-2xl"><IoLogOutOutline /></span>
+                                    <button className="w-full text-left p-2 font-bold text-lg">Log Out</button>
+                                </div>
                             </div>
                         )}
                     </div>
