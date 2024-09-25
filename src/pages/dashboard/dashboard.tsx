@@ -4,7 +4,7 @@ import { HiMenuAlt2 } from "react-icons/hi";
 import { IoIosArrowDown } from "react-icons/io";
 import { IoLogOutOutline, IoTerminalOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
-import DiogramCharts from "../../components/DiogramCharts";
+import DiogramCharts from "@/components/DiogramCharts";
 import { MdAccountCircle } from "react-icons/md";
 import { Helmet } from "react-helmet";
 
