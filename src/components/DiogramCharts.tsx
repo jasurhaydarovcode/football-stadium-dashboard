@@ -4,6 +4,7 @@ import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
 const DiogramCharts = () => {
+    // Order Count uchun data
     const orderCountData = {
         labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
         datasets: [
@@ -17,6 +18,7 @@ const DiogramCharts = () => {
         ],
     };
 
+    // Total Price uchun data
     const totalPriceData = {
         labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
         datasets: [
@@ -30,7 +32,7 @@ const DiogramCharts = () => {
         ],
     };
 
-    // Client Count chart uchun data
+    // Client Count uchun data
     const clientCountData = {
         labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
         datasets: [
@@ -45,8 +47,7 @@ const DiogramCharts = () => {
     };
 
     return (
-        // Charts 
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {/* Order Count */}
             <div className="bg-white p-6 shadow-lg rounded-xl">
                 <h2 className="text-lg font-semibold mb-4">Order Count</h2>

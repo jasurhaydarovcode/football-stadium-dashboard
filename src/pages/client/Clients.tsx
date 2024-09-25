@@ -1,6 +1,15 @@
+import { Helmet } from "react-helmet"
+
 function Client() {
   return (
-    <div>Client</div>
+    <div>
+      <Helmet>
+        <title>Clients</title>
+
+        
+        Clients
+      </Helmet>
+    </div>
   )
 }
 

@@ -1,6 +1,16 @@
+import { Helmet } from "react-helmet"
+
 function login() {
   return (
-    <div>login</div>
+    <div>
+      <Helmet>
+        <title>Login</title>
+      </Helmet>
+
+
+      
+      login
+    </div>
   )
 }
 

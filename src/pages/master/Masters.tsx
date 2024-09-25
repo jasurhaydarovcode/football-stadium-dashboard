@@ -1,6 +1,15 @@
+import { Helmet } from "react-helmet"
+
 function Masters() {
   return (
-    <div>Masters</div>
+    <div>
+      <Helmet>
+        <title>Masters</title>
+      </Helmet>
+      
+
+      Masters
+    </div>
   )
 }
 
