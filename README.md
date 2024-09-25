@@ -1,10 +1,15 @@
 <div align="center">
+<!-- <h1 align="center">Football Stadium Dashboard</h1> -->
 
-# Football Stadium Dashboard
+<img align=left src="https://cdn-icons-png.flaticon.com/512/6820/6820955.png" width="100">
+
+<h1>Football Stadium Dashboard</h1>
 
 </div>
 
-This project is a **Football Stadium Dashboard** designed to manage and display various information about football stadiums, including event schedules and more. The dashboard offers an interactive interface for users to navigate easily and get the information they need.
+## 
+##
+#### This project is a **Football Stadium Dashboard** designed to manage and display various information about football stadiums, including event schedules and more. The dashboard offers an interactive interface for users to navigate easily and get the information they need.
 
 ## Features
 
@@ -23,6 +28,22 @@ This project is a **Football Stadium Dashboard** designed to manage and display 
 |  1  |   Jasur       ||
 |  2  |   Javlon      ||
 |  3  |   Shohjahon   ||
+
+## Demo View
+
+1. Routes (Pages)
+    <select>
+        <option>
+            Routes
+        </option>
+        <option>
+            /dashboard
+        </option>
+    </select>
+
+ 1. Dashboard
+
+    ![Demo Banner Dashboard](.github/demo-banner.png)
 
 
 ## Installation
