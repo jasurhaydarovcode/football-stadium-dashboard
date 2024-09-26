@@ -1,8 +1,9 @@
+// src/components/Sidebar.tsx
+import { useState } from "react";
 import { FaUserEdit, FaUsers } from "react-icons/fa";
 import { HiMenuAlt2 } from "react-icons/hi";
 import { IoTerminalOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
-import { useState } from "react";
 
 interface MenuItem {
     name: string;
@@ -11,7 +12,7 @@ interface MenuItem {
 }
 
 const Sidebar: React.FC = () => {
-    const [isSidebarCollapsed, setIsSidebarCollapsed] = useState<boolean>(false);
+    const [isCollapsed, setIsCollapsed] = useState<boolean>(false);
 
     const menuItems: MenuItem[] = [
         { name: "Dashboard", icon: <IoTerminalOutline />, link: "/dashboard" },
@@ -20,9 +21,10 @@ const Sidebar: React.FC = () => {
     ];
 
     return (
-        <div className={`bg-white shadow-md ${isSidebarCollapsed ? 'w-20' : 'w-64'} transition-width duration-300`}>
+        <div className={`bg-white shadow-md ${isCollapsed ? 'w-20' : 'w-64'} transition-width duration-300`}>
+            {/* Sidebar Toggle Icon */}
             <div className="flex justify-end cursor-pointer">
-                <div className="p-4 font-bold text-3xl" onClick={() => setIsSidebarCollapsed(!isSidebarCollapsed)}>
+                <div className="p-4 font-bold text-3xl" onClick={() => setIsCollapsed(!isCollapsed)}>
                     <HiMenuAlt2 />
                 </div>
             </div>
@@ -33,7 +35,7 @@ const Sidebar: React.FC = () => {
                             <div className="flex justify-center items-center text-2xl w-12">
                                 {item.icon}
                             </div>
-                            {!isSidebarCollapsed && <span>{item.name}</span>}
+                            {!isCollapsed && <span>{item.name}</span>}
                         </li>
                     </Link>
                 ))}
