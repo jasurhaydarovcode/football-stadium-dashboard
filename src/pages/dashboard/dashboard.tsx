@@ -17,6 +17,7 @@ interface MenuItem {
 const Dashboard: React.FC = () => {
     const [isSidebarCollapsed, setIsSidebarCollapsed] = useState<boolean>(true);
     const [showOptions, setShowOptions] = useState<boolean>(false);
+    const [showLogoutModal, setShowLogoutModal] = useState<boolean>(false); // Modal state
 
     const menuItems: MenuItem[] = [
         { name: "Dashboard", icon: <IoTerminalOutline />, link: "/dashboard" },
@@ -29,7 +30,6 @@ const Dashboard: React.FC = () => {
             <Helmet>
                 <title>Dashboard</title>
             </Helmet>
-
 
             <div className="flex h-screen bg-gray-100">
                 {/* Sidebar */}
@@ -83,13 +83,19 @@ const Dashboard: React.FC = () => {
                                         <span className="text-2xl">
                                             <IoLogOutOutline />
                                         </span>
-                                        <button className="w-full text-left p-2 font-bold text-lg">Log Out</button>
+                                        <button
+                                            className="w-full text-left p-2 font-bold text-lg"
+                                            onClick={() => setShowLogoutModal(true)} // Open modal
+                                        >
+                                            Log Out
+                                        </button>
                                     </div>
                                 </div>
                             )}
                         </div>
                     </div>
 
+                    {/* Main Content - Input and Charts */}
                     <div className="flex items-center gap-4 justify-end">
                         <label htmlFor="open" className="font-bold">Enter Year: </label>
                         <input
@@ -100,6 +106,29 @@ const Dashboard: React.FC = () => {
                     </div>
 
                     <DiogramCharts />
+
+                    {showLogoutModal && (
+                        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+                            <div className="bg-white p-8 rounded-lg shadow-lg">
+                                <p className="text-xl font-semibold mb-6">Are you sure you want to log out?</p>
+                                <div className="flex justify-end gap-4">
+                                    <button
+                                        className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600"
+                                        onClick={() => setShowLogoutModal(false)}>
+                                        No
+                                    </button>
+                                    <button
+                                        className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
+                                        // onClick={() => {
+                                        //     setShowLogoutModal(false);
+                                        // }}
+                                    >
+                                        Log Out
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    )}
                 </div>
             </div>
         </div>
