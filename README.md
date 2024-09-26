@@ -25,8 +25,8 @@
 
 |  №  |      Name     |     Component     |
 |-----|---------------|-------------------|
-|  1  |   Jasur       ||
-|  2  |   Javlon      ||
+|  1  |   Jasur       | Dashboard, Masters|
+|  2  |   Javlon      | Login |
 |  3  |   Shohjahon   ||
 
 ## Demo View
@@ -38,6 +38,9 @@
         </option>
         <option>
             /dashboard
+        </option>
+        <option>
+            /masters
         </option>
     </select>
 
