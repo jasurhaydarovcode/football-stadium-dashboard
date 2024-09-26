@@ -22,6 +22,11 @@
 - **Charts and Graphs**: Chart.js for displaying various data visualizations.
 
 ## Developers
+<p align="center">
+  <a href="https://github.com/jasurhaydarovcode/football-stadium-dashboard/graphs/contributors">
+    <img src="https://contrib.rocks/image?repo=jasurhaydarovcode/football-stadium-dashboard">
+  </a>
+</p>
 
 |  №  |      Name     |     Component     |
 |-----|---------------|-------------------|
