@@ -1,7 +1,6 @@
 import { useState } from 'react';
-import { Button } from './ui/button';
+import { Button } from '@/components/ui/button';
 
-// Master interfeysi yaratildi
 interface Master {
     firstName: string;
     lastName: string;

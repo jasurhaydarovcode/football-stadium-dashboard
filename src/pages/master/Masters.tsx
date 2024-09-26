@@ -6,7 +6,7 @@ import { IoLogOutOutline, IoTerminalOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import { MdAccountCircle } from "react-icons/md";
 import { Helmet } from "react-helmet";
-import MastersConfirmed from "@/components/MastersConfirmed";
+import MastersConfirmed from "@/components/content/MastersConfirmed";
 
 interface MenuItem {
     name: string;

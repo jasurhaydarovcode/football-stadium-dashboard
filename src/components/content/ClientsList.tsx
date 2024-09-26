@@ -24,7 +24,7 @@ function ClientsList() {
     };
 
     return (
-        <div className="bg-white px-4 py-5 container">
+        <div className="bg-white px-4 py-5">
             <table className="min-w-full table-auto">
                 <thead>
                     <tr className="bg-white">
