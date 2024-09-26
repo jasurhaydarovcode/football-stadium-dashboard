@@ -15,9 +15,9 @@ interface MenuItem {
 }
 
 const Dashboard: React.FC = () => {
-    const [isSidebarCollapsed, setIsSidebarCollapsed] = useState<boolean>(true);
+    const [isSidebarCollapsed, setIsSidebarCollapsed] = useState<boolean>(false);
     const [showOptions, setShowOptions] = useState<boolean>(false);
-    const [showLogoutModal, setShowLogoutModal] = useState<boolean>(false); // Modal state
+    const [showLogoutModal, setShowLogoutModal] = useState<boolean>(false);
 
     const menuItems: MenuItem[] = [
         { name: "Dashboard", icon: <IoTerminalOutline />, link: "/dashboard" },

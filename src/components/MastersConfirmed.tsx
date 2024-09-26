@@ -1,10 +1,17 @@
 import { useState } from 'react';
 import { Button } from './ui/button';
 
-const MastersConfirmed = () => {
-    const [activeTab, setActiveTab] = useState('confirmed');
+// Master interfeysi yaratildi
+interface Master {
+    firstName: string;
+    lastName: string;
+    phoneNumber: string;
+}
 
-    const confirmedMasters = [
+const MastersConfirmed = () => {
+    const [activeTab, setActiveTab] = useState<string>('confirmed');
+
+    const confirmedMasters: Master[] = [
         {
             firstName: "Maste268",
             lastName: "mister268",
@@ -32,7 +39,7 @@ const MastersConfirmed = () => {
         }
     ];
 
-    const notConfirmedMasters = [
+    const notConfirmedMasters: Master[] = [
         {
             firstName: "Asilbek",
             lastName: "Normuhammadov",
@@ -45,7 +52,7 @@ const MastersConfirmed = () => {
         }
     ];
 
-    const masters = activeTab === 'confirmed' ? confirmedMasters : notConfirmedMasters;
+    const masters: Master[] = activeTab === 'confirmed' ? confirmedMasters : notConfirmedMasters;
 
     return (
         <div>
