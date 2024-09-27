@@ -15,15 +15,15 @@ function App() {
   }
   useEffect(() => {
     checkLogin()
-  })
+  }, [])
   return (
     <React.Fragment>
       <Routes>
         <Route path="/login" element={<Login />} />
-        <Route path="/dashboard" element={<Dashboard/>} />
+        <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/masters" element={<Masters />} />
         <Route path="/clients" element={<Clients />} />
-        <Route path="/*" element={<NotFound />} /> 
+        <Route path="/*" element={<NotFound />} />
       </Routes>
     </React.Fragment >
   )

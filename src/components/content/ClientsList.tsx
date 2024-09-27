@@ -1,19 +1,11 @@
-import { useState } from 'react';
-
-interface Client {
-    firstName: string;
-    lastName: string;
-    orderCount: number;
-    phoneNumber: string;
-}
-
-const clients: Client[] = [
-    { firstName: 'Muhammadyusuf', lastName: 'Temirov', orderCount: 21, phoneNumber: '+998919517335' },
-    { firstName: 'client2', lastName: 'client2', orderCount: 0, phoneNumber: '55555222' }
-];
+import { config } from '@/api/token';
+import { clientType } from '@/interface/client';
+import axios, { AxiosResponse } from 'axios';
+import { useEffect, useState } from 'react';
 
 function ClientsList() {
     const [showModal, setShowModal] = useState<boolean>(false);
+    const [data, setData] = useState<clientType[] | null>();
 
     const handleDeleteClick = (): void => {
         setShowModal(true);
@@ -22,7 +14,23 @@ function ClientsList() {
     const handleNoClick = (): void => {
         setShowModal(false);
     };
-
+    console.log('salm');
+    
+    function getData() {
+        axios.get(`http://164.92.165.18:8080/api/v1/user/clients/for-admin/list?page=0&size=10`, config)
+            .then((res: AxiosResponse) => {
+                console.log(res);
+                setData(res.data)
+            })
+            .catch(err => console.log(err));
+    }
+    
+    useEffect(() => {
+        getData()
+    }, [])
+    
+    console.log(data);
+    
     return (
         <div className="bg-white px-4 py-5">
             <table className="min-w-full table-auto">
@@ -36,12 +44,12 @@ function ClientsList() {
                     </tr>
                 </thead>
                 <tbody>
-                    {clients.map((client, index) => (
-                        <tr key={index}>
-                            <td className="px-4 py-2">{client.firstName || '---'}</td>
-                            <td className="px-4 py-2">{client.lastName || '---'}</td>
-                            <td className="px-4 py-2">{client.orderCount}</td>
-                            <td className="px-4 py-2">{client.phoneNumber}</td>
+                    {data && data.length > 0 && data.map((client: clientType, key) => (
+                        <tr key={key}>
+                            <td className="px-4 py-2">{client.data.object[0].firstName}</td>
+                            <td className="px-4 py-2">{client.data.object[0].lastName}</td>
+                            <td className="px-4 py-2">{client.data.object[0].orderCount}</td>
+                            <td className="px-4 py-2">{client.data.object[0].phoneNumber}</td>
                             <td className="px-4 py-2">
                                 <button
                                     onClick={handleDeleteClick}
