@@ -12,6 +12,7 @@ interface HeaderProps {
 const Header: React.FC<HeaderProps> = ({ title, setShowLogoutModal }) => {
     const [showOptions, setShowOptions] = useState<boolean>(false);
     const [showAccountModal, setShowAccountModal] = useState<boolean>(false);
+   
 
     return (
         <div className="flex justify-between items-center mb-8 relative">
