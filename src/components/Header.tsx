@@ -6,10 +6,11 @@ import { IoLogOutOutline } from "react-icons/io5";
 
 interface HeaderProps {
     title: string;
+    onLogout: () => void;
     setShowLogoutModal: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const Header: React.FC<HeaderProps> = ({ title, setShowLogoutModal }) => {
+const Header: React.FC<HeaderProps> = ({ title, onLogout }) => {
     const [showOptions, setShowOptions] = useState<boolean>(false);
     const [showAccountModal, setShowAccountModal] = useState<boolean>(false);
    
@@ -38,7 +39,7 @@ const Header: React.FC<HeaderProps> = ({ title, setShowLogoutModal }) => {
                             <span className="text-2xl"><IoLogOutOutline /></span>
                             <button
                                 className="w-full text-left p-2 font-bold text-lg"
-                                onClick={() => setShowLogoutModal(true)}
+                                onClick={onLogout}
                             >
                                 Log Out
                             </button>
@@ -60,7 +61,7 @@ const Header: React.FC<HeaderProps> = ({ title, setShowLogoutModal }) => {
                                 <input type="text" value="adminov" className="w-full p-2 border rounded" readOnly />
                             </div>
                             <div className="mb-4">
-                                <input type="text" placeholder="Want to change? Write new password" className="w-full p-2 border rounded" />
+                                <input type="password" placeholder="Want to change? Write new password" className="w-full p-2 border rounded" />
                             </div>
                             <div className="mb-4">
                                 <input type="text" value="+998908904822" className="w-full p-2 border rounded" readOnly />
@@ -76,6 +77,7 @@ const Header: React.FC<HeaderProps> = ({ title, setShowLogoutModal }) => {
                                 <button
                                     type="button"
                                     className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
+                                // Add your save logic here
                                 >
                                     Save
                                 </button>
