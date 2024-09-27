@@ -4,7 +4,7 @@ import { FaUserCircle, FaUserEdit, FaUsers } from "react-icons/fa";
 import { HiMenuAlt2 } from "react-icons/hi";
 import { IoIosArrowDown } from "react-icons/io";
 import { IoLogOutOutline, IoTerminalOutline } from "react-icons/io5";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { MdAccountCircle } from "react-icons/md";
 import { Helmet } from "react-helmet";
 
@@ -20,6 +20,7 @@ interface LayoutProps {
 }
 
 const Layout: React.FC<LayoutProps> = ({ title, children }) => {
+    const navigate = useNavigate();
     const [isSidebarCollapsed, setIsSidebarCollapsed] = useState<boolean>(false);
     const [showOptions, setShowOptions] = useState<boolean>(false);
     const [showLogoutModal, setShowLogoutModal] = useState<boolean>(false);
@@ -42,6 +43,13 @@ const Layout: React.FC<LayoutProps> = ({ title, children }) => {
             link: "/clients"
         },
     ];
+
+    const logOut = () => {
+        localStorage.removeItem('token');
+        setShowLogoutModal(false);
+        navigate('/login');
+        window.location.reload(); // Refresh the page after logging out
+    };
 
     return (
         <div>
@@ -149,7 +157,6 @@ const Layout: React.FC<LayoutProps> = ({ title, children }) => {
                                         <button
                                             type="button"
                                             className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
-                                        // ----- Save logica uchun -----
                                         >
                                             Save
                                         </button>
@@ -171,9 +178,8 @@ const Layout: React.FC<LayoutProps> = ({ title, children }) => {
                                     >
                                         No
                                     </button>
-                                    <button
+                                    <button onClick={logOut}
                                         className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
-                                    // logika Log Out by kimdir
                                     >
                                         Log Out
                                     </button>
