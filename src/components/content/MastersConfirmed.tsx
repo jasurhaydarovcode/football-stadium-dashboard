@@ -25,16 +25,6 @@ const MastersConfirmed = () => {
             firstName: "Nmsefese 332222www31",
             lastName: "Lat 3refNa22wwwme 3312422",
             phoneNumber: "2223532222221"
-        },
-        {
-            firstName: "Maste68",
-            lastName: "mister68",
-            phoneNumber: "+9981610760107"
-        },
-        {
-            firstName: "Maste168",
-            lastName: "mister168",
-            phoneNumber: "+99811610760107"
         }
     ];
 
@@ -43,11 +33,6 @@ const MastersConfirmed = () => {
             firstName: "Asilbek",
             lastName: "Normuhammadov",
             phoneNumber: "+99811610760107"
-        },
-        {
-            firstName: "Asilbek",
-            lastName: "asilbek",
-            phoneNumber: "+998908904815"
         }
     ];
 
@@ -55,15 +40,15 @@ const MastersConfirmed = () => {
 
     return (
         <div>
-            <div className="mb-4 ml-1 flex gap-4">
-                <button 
-                    className={`text-lg p-2 rounded-lg transition duration-300 ease-in-out ${activeTab === 'confirmed' ? 'bg-gray-300' : 'hover:bg-gray-300'}`} 
+            <div className="mb-4 ml-1 flex gap-4" style={{ fontFamily: "Lato-Italic" }}>
+                <button
+                    className={`text-lg p-2 rounded-lg transition duration-300 ease-in-out ${activeTab === 'confirmed' ? 'bg-gray-300' : 'hover:bg-gray-300'}`}
                     onClick={() => setActiveTab('confirmed')}
                 >
                     Confirmed Masters
                 </button>
-                <button 
-                    className={`text-lg p-2 rounded-lg transition duration-300 ease-in-out ${activeTab === 'notConfirmed' ? 'bg-gray-300' : 'hover:bg-gray-300'}`} 
+                <button
+                    className={`text-lg p-2 rounded-lg transition duration-300 ease-in-out ${activeTab === 'notConfirmed' ? 'bg-gray-300' : 'hover:bg-gray-300'}`}
                     onClick={() => setActiveTab('notConfirmed')}
                 >
                     Not Confirmed Masters
@@ -127,7 +112,7 @@ const MastersConfirmed = () => {
                     </table>
                 )}
                 {masters.length > 0 && (
-                    <div className="flex justify-between items-center mt-4">
+                    <div className="flex justify-between px-4 items-center mt-4">
                         <Button>Previous</Button>
                         <span className="text-sm text-gray-600">1/1</span>
                         <Button>Next</Button>

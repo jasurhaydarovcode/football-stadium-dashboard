@@ -63,9 +63,9 @@ function ClientsList() {
                 </tbody>
             </table>
 
-            <div className="flex justify-between items-center mt-4">
+            <div className="flex justify-between items-center px-4 mt-4">
                 <button className="bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-900">Previous</button>
-                <span>1/3</span>
+                <span>1/1</span>
                 <button className="bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-900">Next</button>
             </div>
 
