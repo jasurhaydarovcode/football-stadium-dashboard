@@ -8,8 +8,12 @@ interface Client {
 }
 
 const clients: Client[] = [
-    { firstName: 'Muhammadyusuf', lastName: 'Temirov', orderCount: 21, phoneNumber: '+998919517335' },
-    { firstName: 'client2', lastName: 'client2', orderCount: 0, phoneNumber: '55555222' }
+    {
+        firstName: 'Muhammadyusuf',
+        lastName: 'Temirov',
+        orderCount: 21,
+        phoneNumber: '+998919517335'
+    }
 ];
 
 function ClientsList() {
@@ -55,9 +59,9 @@ function ClientsList() {
                 </tbody>
             </table>
 
-            <div className="flex justify-between items-center mt-4">
+            <div className="flex justify-between items-center px-4 mt-4">
                 <button className="bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-900">Previous</button>
-                <span>1/3</span>
+                <span>1/1</span>
                 <button className="bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-900">Next</button>
             </div>
 
