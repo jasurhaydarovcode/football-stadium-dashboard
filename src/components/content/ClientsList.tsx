@@ -65,7 +65,7 @@
                         {data && data.length > 0 ? (
                             data.map((client: clientType, key) => (
                                 <tr key={key}>
-                                    <td className="px-4 py-2">{client.firstName }</td>
+                                    <td className="px-4 py-2">{client.firstName}</td>
                                     <td className="px-4 py-2">{client.lastName}</td>
                                     <td className="px-4 py-2">{client.orderCount}</td>
                                     <td className="px-4 py-2">{client.phoneNumber}</td>
