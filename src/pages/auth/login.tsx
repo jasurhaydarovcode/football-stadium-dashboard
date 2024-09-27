@@ -6,8 +6,8 @@ import { useNavigate } from "react-router-dom";
 
 function Login() {
   const navigate = useNavigate();
-  const phone = useRef<HTMLInputElement | null>(null);  // o'zgarish
-  const password = useRef<HTMLInputElement | null>(null);  // o'zgarish
+  const phone = useRef<HTMLInputElement | null>(null); 
+  const password = useRef<HTMLInputElement | null>(null);
   const [phoneValue, setPhoneValue] = useState<string>("+998");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
