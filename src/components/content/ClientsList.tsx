@@ -25,7 +25,6 @@ function ClientsList() {
         if (selectedClientId) {
             axios.delete(`${apiUrl}/api/v1/user/${selectedClientId}`, config)
                 .then(() => {
-                    // O'chirishdan keyin ma'lumotlarni yangilash
                     setData((prevData) => prevData?.filter(client => client.id !== selectedClientId) || null);
                     setShowModal(false);
                     setSelectedClientId(null);
@@ -90,7 +89,7 @@ function ClientsList() {
                                 <td className="px-4 py-2">{client.phoneNumber}</td>
                                 <td className="px-4 py-2">
                                     <button
-                                        onClick={() => handleDeleteClick(client.id)} // O'chirish tugmasini bosganda ID ni uzatish
+                                        onClick={() => handleDeleteClick(client.id)}
                                         className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
                                     >
                                         Delete
