@@ -3,6 +3,8 @@ import { config } from '@/api/token';
 import { clientType } from '@/interface/client';
 import axios, { AxiosResponse } from 'axios';
 import { useEffect, useState } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function ClientsList() {
     const [showModal, setShowModal] = useState<boolean>(false);
@@ -12,7 +14,7 @@ function ClientsList() {
     const [selectedClientId, setSelectedClientId] = useState<string | null>(null);
 
     const handleDeleteClick = (clientId: string): void => {
-        setSelectedClientId(clientId); 
+        setSelectedClientId(clientId);
         setShowModal(true);
     };
 
@@ -26,12 +28,14 @@ function ClientsList() {
             axios.delete(`${apiUrl}/api/v1/user/${selectedClientId}`, config)
                 .then(() => {
                     setData((prevData) => prevData?.filter(client => client.id !== selectedClientId) || null);
+                    toast.success('Client deleted successfully!');
                     setShowModal(false);
                     setSelectedClientId(null);
                 })
                 .catch(err => {
-                    console.error('O\'chirishda xato:', err);
-                    setError('O\'chirishda xatolik yuz berdi.');
+                    console.error('Deletion error:', err);
+                    setError('Error deleting client.');
+                    toast.error('Error deleting client.');
                 });
         }
     };
@@ -40,13 +44,14 @@ function ClientsList() {
         setLoading(true);
         axios.get(`${apiUrl}/api/v1/user/clients/for-admin/list?page=0&size=10`, config)
             .then((res: AxiosResponse) => {
-                console.log('API javobi:', res.data);
+                console.log('API response:', res.data);
                 setData(res.data.data.object);
                 setLoading(false);
             })
             .catch(err => {
-                console.error('API chaqiruvi xatosi:', err);
-                setError('Ma\'lumotlarni yuklashda xatolik yuz berdi.');
+                console.error('API call error:', err);
+                setError('Error loading data.');
+                toast.error('Error loading data.');
                 setLoading(false);
             });
     }
@@ -55,12 +60,8 @@ function ClientsList() {
         getData();
     }, []);
 
-    useEffect(() => {
-        console.log('Data o\'zgardi:', data);
-    }, [data]);
-
     if (loading) {
-        return <div className="text-center py-10">Yuklanmoqda...</div>;
+        return <div className="text-center py-10">Loading...</div>;
     }
 
     if (error) {
@@ -69,23 +70,22 @@ function ClientsList() {
 
     return (
         <div className="bg-white px-4 py-5">
+            <ToastContainer position="top-right" autoClose={5000} hideProgressBar={false} closeOnClick pauseOnHover draggable />
             <table className="min-w-full table-auto">
                 <thead>
                     <tr className="bg-white">
                         <th className="px-4 py-2 text-left">First Name</th>
                         <th className="px-4 py-2 text-left">Last Name</th>
-                        <th className="px-4 py-2 text-left">Order Count</th>
                         <th className="px-4 py-2 text-left">Phone Number</th>
-                        <th className="px-4 py-2 text-left">Actions</th>
+                        <th className="px-4 py-2 text-left">Delete</th>
                     </tr>
                 </thead>
                 <tbody>
                     {data && data.length > 0 ? (
-                        data.map((client: clientType, key) => (
-                            <tr key={key}>
+                        data.map((client: clientType) => (
+                            <tr key={client.id}>
                                 <td className="px-4 py-2">{client.firstName}</td>
                                 <td className="px-4 py-2">{client.lastName}</td>
-                                <td className="px-4 py-2">{client.orderCount}</td>
                                 <td className="px-4 py-2">{client.phoneNumber}</td>
                                 <td className="px-4 py-2">
                                     <button
@@ -99,17 +99,11 @@ function ClientsList() {
                         ))
                     ) : (
                         <tr>
-                            <td colSpan={5} className="px-4 py-2 text-center">Foydalanuvchilar topilmadi.</td>
+                            <td colSpan={4} className="px-4 py-2 text-center">No Users Found.</td>
                         </tr>
                     )}
                 </tbody>
             </table>
-
-            <div className="flex justify-between items-center px-4 mt-4">
-                <button className="bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-900">Previous</button>
-                <span>1/1</span>
-                <button className="bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-900">Next</button>
-            </div>
 
             {showModal && (
                 <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center">

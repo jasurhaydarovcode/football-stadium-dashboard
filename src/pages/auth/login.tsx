@@ -3,12 +3,15 @@ import { useRef, useState } from "react";
 import axios from "axios";
 import { loginType } from "@/interface/logininterFace";
 import { useNavigate } from "react-router-dom";
+import 'react-toastify/dist/ReactToastify.css';
+import { toast } from "react-toastify";
 
 function Login() {
   const navigate = useNavigate();
-  const phone = useRef<HTMLInputElement | null>(null); 
+  const phone = useRef<HTMLInputElement | null>(null);
   const password = useRef<HTMLInputElement | null>(null);
   const [phoneValue, setPhoneValue] = useState<string>("+998");
+  const [loading, setLoading] = useState<boolean>(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPhoneValue(e.target.value);
@@ -22,9 +25,14 @@ function Login() {
       password: password.current.value,
     };
 
+    setLoading(true);
+
+    toast.dismiss();
+
     axios.post(`${apiUrl}/api/v1/auth/login`, data)
       .then((res) => {
         localStorage.setItem("token", res.data.data.token);
+        toast.success("Successfully logged in!");
         if (res.data.data.role === "ROLE_SUPER_ADMIN") {
           navigate("/dashboard");
         } else if (res.data.data.role === "ROLE_MASTER") {
@@ -36,6 +44,10 @@ function Login() {
       })
       .catch((err) => {
         console.error(err);
+        toast.dark("Login failed. Please try again.");
+      })
+      .finally(() => {
+        setLoading(false);
       });
   };
 
@@ -90,9 +102,10 @@ function Login() {
                   <button
                     onClick={registerLogin}
                     type="submit"
-                    className="transition duration-200 ease-in-out w-full bg-gradient-to-b from-gray-700 to-black text-white font-semibold py-2 px-4 rounded-md hover:opacity-90"
+                    className={`transition duration-200 ease-in-out w-full bg-gradient-to-b from-gray-700 to-black text-white font-semibold py-2 px-4 rounded-md hover:opacity-90 ${loading ? 'opacity-50 cursor-not-allowed' : ''}`}
+                    disabled={loading}
                   >
-                    Login to your account
+                    {loading ? 'Loading...' : 'Login to your account'}
                   </button>
                 </div>
               </div>

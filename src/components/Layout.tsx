@@ -48,7 +48,7 @@ const Layout: React.FC<LayoutProps> = ({ title, children }) => {
         localStorage.removeItem('token');
         setShowLogoutModal(false);
         navigate('/login');
-        window.location.reload(); 
+        window.location.reload();
     };
 
     return (
