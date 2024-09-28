@@ -30,28 +30,22 @@
 
 |  №  |      Name     |     Component     |
 |-----|---------------|-------------------|
-|  1  |   Jasur       | Dashboard, Masters|
-|  2  |   Javlon      | Login |
+|  1  |   Jasur       | Dashboard, Masters |
+|  2  |   Javlon      | Login, Masters  |
 |  3  |   Shohjahon   ||
 
-## Demo View
+## View Pages
+<details>
+    <summary>
+        Routes
+    </summary>
 
-1. Routes (Pages)
-    <select>
-        <option>
-            Routes
-        </option>
-        <option>
-            /dashboard
-        </option>
-        <option>
-            /masters
-        </option>
-    </select>
-
- 1. Dashboard
-
-    ![Demo Banner Dashboard](.github/demo-banner.png)
+ 1. Login
+    ![Login Walper](.github/present/login.png)
+ 2. Dashboard
+    ![Banner Dashboard](.github/present/dashboard.png)
+    
+</details>
 
 
 ## Installation
@@ -90,5 +84,5 @@
 
 | Login | Password |
 | ----- | -------- |
-| +998993393300 | ***** |
+| +998****3300 | ***** |
 </div>

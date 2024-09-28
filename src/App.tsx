@@ -1,5 +1,6 @@
 import React, { useEffect } from "react"
 import { Route, Routes, useNavigate } from "react-router-dom"
+import { Home } from "./pages/Home"
 import Login from './pages/auth/login'
 import Dashboard from './pages/dashboard/dashboard'
 import Masters from './pages/master/Masters'
@@ -21,6 +22,7 @@ function App() {
     <React.Fragment>
       <Routes>
         <Route path="/login" element={<Login />} />
+        <Route path="/" element={<Home />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/masters" element={<Masters />} />
         <Route path="/clients" element={<Clients />} />

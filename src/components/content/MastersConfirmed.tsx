@@ -40,7 +40,7 @@ const MastersConfirmed = () => {
 
     return (
         <div>
-            <div className="mb-4 ml-1 flex gap-4" style={{ fontFamily: "Lato-Italic" }}>
+            <div className="mb-4 ml-1 flex gap-4" >
                 <button
                     className={`text-lg p-2 rounded-lg transition duration-300 ease-in-out ${activeTab === 'confirmed' ? 'bg-gray-300' : 'hover:bg-gray-300'}`}
                     onClick={() => setActiveTab('confirmed')}

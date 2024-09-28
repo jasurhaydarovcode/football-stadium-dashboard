@@ -32,7 +32,7 @@ function Login() {
     axios.post(`${apiUrl}/api/v1/auth/login`, data)
       .then((res) => {
         localStorage.setItem("token", res.data.data.token);
-        toast.success("Successfully logged in!");
+        toast.dark("Successfully logged in!");
         if (res.data.data.role === "ROLE_SUPER_ADMIN") {
           navigate("/dashboard");
         } else if (res.data.data.role === "ROLE_MASTER") {
