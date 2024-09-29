@@ -18,6 +18,7 @@
 ## Technologies Used
 
 - **Frontend**: React.js, Tailwind CSS
+- **Backend**: Swagger UI
 - **UI**: Flowbite, Shadcn
 - **Charts and Graphs**: Chart.js for displaying various data visualizations.
 
@@ -30,8 +31,8 @@
 
 |  №  |      Name     |     Component     |
 |-----|---------------|-------------------|
-|  1  |   Jasur       | Dashboard, Masters |
-|  2  |   Javlon      | Login, Masters  |
+|  1  |   Jasur       | Dashboard, Masters, Clients |
+|  2  |   Javlon      | Login, Masters, CLients  |
 |  3  |   Shohjahon   ||
 
 ## View Pages
