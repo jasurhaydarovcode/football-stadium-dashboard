@@ -12,7 +12,7 @@ function App() {
   function checkLogin() {
     if (!localStorage.getItem('token')) {
       navigate('/login')
-    }
+    } 
   }
   useEffect(() => {
     checkLogin()
