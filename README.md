@@ -33,7 +33,6 @@
 |-----|---------------|-------------------|
 |  1  |   Jasur       | Dashboard, Masters, Clients |
 |  2  |   Javlon      | Login, Masters, CLients  |
-|  3  |   Shohjahon   ||
 
 ## View Pages
 <details>
